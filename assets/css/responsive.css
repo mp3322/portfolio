@@ -151,10 +151,10 @@
 
 /* Landscape Mobile */
 @media only screen and (min-width : 480px) and (max-width : 767px) {
-	.intro h1 {
+	/*.intro h1 {
 		font-size: 60px;
 		line-height: 80px;
-	}
+	}*/
 	
 	.social-icons ul{
 		margin-left: -5px;

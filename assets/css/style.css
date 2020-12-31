@@ -2508,6 +2508,7 @@ ul.typo-check > li::before {
 
     .color_rgb {
         display: inline-block;
+        padding: 0 10px;
     }
 
     #ecpaabout .color_rgb {

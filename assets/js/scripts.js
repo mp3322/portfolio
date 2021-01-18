@@ -34,9 +34,9 @@ jQuery(function ($) {
         $('#tt-preloader').delay(350).fadeOut('slow');
     });*/
     
-    $( window ).load( function () {
+    /*$( window ).load( function () {
         $( "#loading" ).fadeOut( 500 );
-    } );
+    } );*/
 
 
 

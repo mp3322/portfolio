@@ -2186,8 +2186,13 @@ Icon for all respective meta
     padding-bottom: 3vh;
 }
 
+.sub-btn {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .sub-btn a {
-    display: inline-block;
     width: 86px;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);

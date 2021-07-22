@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>에코피스아시아</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="shortcut icon" href="img/ico_favicon.ico" type="img/ico_favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script>
+        $(function() {
+            function slideMenu() {
+                var activeState = $("#menu-container .menu-list").hasClass("active");
+                $("#menu-container .menu-list").animate({
+                    left: activeState ? "0%" : "-100%"
+                }, 400);
+            }
+            $("#menu-wrapper").click(function(event) {
+                event.stopPropagation();
+                $("#hamburger-menu").toggleClass("open");
+                $("#menu-container .menu-list").toggleClass("active");
+                slideMenu();
+
+                $("body").toggleClass("overflow-hidden");
+            });
+
+            $(".menu-list").find(".accordion-toggle").click(function() {
+                $(this).next().toggleClass("open").slideToggle("fast");
+                $(this).toggleClass("active-tab").find(".menu-link").toggleClass("active");
+
+                $(".menu-list .accordion-content").not($(this).next()).slideUp("fast").removeClass("open");
+                $(".menu-list .accordion-toggle").not(jQuery(this)).removeClass("active-tab").find(".menu-link").removeClass("active");
+            });
+            
+            var tabBtn = $('.title_menu > div > ul > li');
+            tabBtn.click(function(e) {
+                e.preventDefault();
+            });
+        }); // jQuery load
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="inner">
+                <div class="logo">
+                    <a href="index.html"><img src="img/logo_green.png" alt="로고"></a>
+                </div>
+                <div class="nav_hover">
+                    <ul class="nav">
+                        <li><a href="sub1.html">단체소개</a></li>
+                        <li><a href="sub3.html">사업소개</a></li>
+                        <li><a href="sub2.html">참여 & 후원</a></li>
+                        <li><a href="sub1.html">새소식</a></li>
+                        <li><a href="sub3.html">갤러리</a></li>
+                    </ul>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="sub1.html">단체소개</a>
+                                <ul class="list">
+                                    <li><a href="sub1.html">단체정보</a></li>
+                                    <li><a href="sub2.html">재정보고</a></li>
+                                    <li><a href="sub1.html">협력기관</a></li>
+                                    <li><a href="sub2.html">찾아오는 길</a></li>
+                                    <li><a href="sub1.html">1:1 문의</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="sub3.html">사업소개</a>
+                                <ul class="list">
+                                    <li><a href="sub3.html">사막화 방지</a></li>
+                                    <li><a href="sub3.html">맹그로브 생태복원</a></li>
+                                    <li><a href="sub3.html">혼농임업</a></li>
+                                    <li><a href="sub3.html">환경적정기술 보급</a></li>
+                                    <li><a href="sub3.html">해외봉사</a></li>
+                                    <li><a href="sub3.html">국제교류</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="sub1.html">참여 & 후원</a>
+                                <ul class="list">
+                                    <li><a href="sub1.html">인턴쉽</a></li>
+                                    <li><a href="sub1.html">자원봉사</a></li>
+                                    <li><a href="sub1.html">후원기관</a></li>
+                                    <li><a href="sub1.html">개인후원</a></li>
+                                    <li><a href="sub1.html">단체후원</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="sub2.html">새소식</a>
+                                <ul class="list">
+                                    <li><a href="sub2.html">공지</a></li>
+                                    <li><a href="sub2.html">보도자료</a></li>
+                                    <li><a href="sub2.html">언론보도</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="sub3.html">갤러리</a>
+                                <ul class="list">
+                                    <li><a href="sub3.html">사막화 방지</a></li>
+                                    <li><a href="sub3.html">맹그로브 생태복원</a></li>
+                                    <li><a href="sub3.html">혼농임업</a></li>
+                                    <li><a href="sub3.html">환경적정기술 보급</a></li>
+                                    <li><a href="sub3.html">해외봉사</a></li>
+                                    <li><a href="sub3.html">국제교류</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="lang">
+                    <li><a href="#">KR</a></li>
+                    <li><a href="#">EN</a></li>
+                </ul>
+
+                <div id="menu-container">
+                    <div id="menu-wrapper">
+                        <div id="hamburger-menu"><span></span><span></span><span></span></div>
+                        <!-- hamburger-menu -->
+                    </div>
+                    <!-- menu-wrapper -->
+                    <ul class="menu-list accordion">
+                        <li id="nav1" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="#">단체소개</a>
+                        </li>
+                        <ul class="menu-submenu accordion-content">
+                            <li><a class="head" href="sub1.html">단체정보</a></li>
+                            <li><a class="head" href="sub2.html">재정보고</a></li>
+                            <li><a class="head" href="sub1.html">협력기관</a></li>
+                            <li><a class="head" href="sub2.html">찾아오는 길</a></li>
+                            <li><a class="head" href="sub1.html">1:1 문의</a></li>
+                        </ul>
+                        <li id="nav2" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="sub3.html">사업소개</a>
+                        </li>
+                        <ul class="menu-submenu accordion-content">
+                            <li><a class="head" href="sub3.html">사막화방지</a></li>
+                            <li><a class="head" href="sub3.html">맹그로브 생태복원</a></li>
+                            <li><a class="head" href="sub3.html">혼농임업</a></li>
+                            <li><a class="head" href="sub3.html">환경적정기술 보급</a></li>
+                            <li><a class="head" href="sub3.html">해외봉사</a></li>
+                            <li><a class="head" href="sub3.html">국제교류</a></li>
+                        </ul>
+                        <li id="nav3" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="#">참여 & 후원</a>
+                        </li>
+                        <ul class="menu-submenu accordion-content">
+                            <li><a class="head" href="sub2.html">인턴쉽</a></li>
+                            <li><a class="head" href="sub2.html">자원봉사</a></li>
+                            <li><a class="head" href="sub2.html">후원기관</a></li>
+                            <li><a class="head" href="sub2.html">개인후원</a></li>
+                            <li><a class="head" href="sub2.html">단체후원</a></li>
+                        </ul>
+                        <li id="nav4" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="#">새소식</a>
+                        </li>
+                        <ul class="menu-submenu accordion-content">
+                            <li><a class="head" href="sub1.html">공지</a></li>
+                            <li><a class="head" href="sub2.html">보도자료</a></li>
+                            <li><a class="head" href="sub3.html">언론보도</a></li>
+                        </ul>
+                        <li id="nav5" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="#">갤러리</a>
+                        </li>
+                        <ul class="menu-submenu accordion-content">
+                            <li><a class="head" href="sub3.html">사막화방지</a></li>
+                            <li><a class="head" href="sub3.html">맹그로브 생태복원</a></li>
+                            <li><a class="head" href="sub3.html">혼농임업</a></li>
+                            <li><a class="head" href="sub3.html">환경적정기술 보급</a></li>
+                            <li><a class="head" href="sub3.html">해외봉사</a></li>
+                            <li><a class="head" href="sub3.html">국제교류</a></li>
+                        </ul>
+                    </ul>
+                    <!-- menu-list accordion-->
+                </div>
+            </div>
+            <a id="topBtn"><img src="img/ico_top.png" alt=""></a>
+        </header>
+        <main id="sub3_contents">
+            <section class="titlebodyimg sub3_img">
+                <h1 class="hidden">서브이미지</h1>
+                <div class="titlebody_text">
+                    <h3>사업소개</h3>
+                </div>
+                <ul class="title_menu title_sub3">
+                    <div class="inner">
+                        <ul>
+                            <li class="active"><a class="menu" href="#">사막화방지</a></li>
+                            <li><a class="menu" href="#">맹그로브 생태복원</a></li>
+                            <li><a class="menu" href="#">혼농임업</a></li>
+                            <li><a class="menu" href="#">환경적정기술 보급</a></li>
+                            <li><a class="menu" href="#">해외봉사</a></li>
+                            <li><a class="menu" href="#">국제교류</a></li>
+                        </ul>
+                    </div>
+                </ul>
+            </section>
+            <section class="sub3-cons">
+                <h1 class="hidden">콘텐츠</h1>
+                <!--<ul class="top_menu menu_sub3">
+                    <li><a href="sub3.html">사막화방지</a></li>
+                    <li><a href="sub3.html">맹그로브 생태복원</a></li>
+                    <li><a href="sub3.html">혼농임업</a></li>
+                </ul>-->
+                <div class="desert">
+                    <img src="img/sub3_1.jpg" alt="" class="desert_img">
+                    <div class="desert_text">
+                        <div class="desert_right">
+                            <h5>COMBATING DESERTIFICATION</h5>
+                            <h2>사막화방지</h2>
+                            <p>중국 사막화 방지 사업은 한국 황사의 주요발원지 중 가장 영향이 큰 중국 내몽고지역 시린골 초원 사막화를 근본적으로 막기 위한 사업입니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="goals">
+                    <div class="inner">
+                        <h3>CHALLENGES & GOALS</h3>
+                        <div class="goal">
+                            <div class="goal-img">
+                                <img src="img/goal_1.jpg" alt="">
+                            </div>
+                            <div class="goal-text">
+                                <h2>매년 약 1.4톤의 황사발생 억제</h2>
+                                <p>에코피스아시아가 심는 나문재(현지명:감봉)은 1평방센티미티(㎠)의 작은 면적에도 평균 2.65g의 풍사를 억제할 수 있는 힘이 있습니다. 나문재는 황폐한 대지의 미세한 분진이 날아가지 않도록 땅을 덮어 황사 발생자체를 근본적으로 차단 할 수 있기 때문입니다.</p>
+                            </div>
+                        </div>
+                        <div class="goal">
+                            <div class="goal-img">
+                                <img src="img/goal_2.jpg" alt="">
+                            </div>
+                            <div class="goal-text">
+                                <h2>1,600만평, 여의도 약 18개 <br>면적의 초원 생태복원</h2>
+                                <p>2003년 사막화방지 사업을 시작한 이래, 우리가 복원한 초원 면적은 총 1,600만평으로 여의도 약 18개의 크기와 맞먹는 면적입니다. 이러한 우리의 노력은 중국의 가장 권위 있는 생태상인 ‘SEE·TNC 그린리더 부문 생태상’을 외국인 최초로 에코피스아시아 중국사무소장이 수상함으로써 중국 내에서 크게 인정받게 되었습니다. </p>
+                            </div>
+                        </div>
+                        <div class="goal">
+                            <div class="goal-img">
+                                <img src="img/goal_3.jpg" alt="">
+                            </div>
+                            <div class="goal-text">
+                                <h2>자연의, 자연에 의한, <br>자연을 위한 생태 복원</h2>
+                                <p>우리가 생태 복원 활동에서 가장 중요하게 생각하는 것은 현지의 자연생태계에 적합한 방법을 찾는 것입니다. 현재 종 다양성에 입각한 생태 복원을 위해 나문재 외에도 감모초 등의 초본 파종과 현지 자생종인 소과백자, 위성류 등도 함께 실험 식재하고 있습니다.</p>
+                            </div>
+                        </div>
+                        <div class="goal">
+                            <div class="goal-img">
+                                <img src="img/goal_4.jpg" alt="">
+                            </div>
+                            <div class="goal-text">
+                                <h2>중국 알칼리 초원사막화 방지분야 <br>13년 KNOW-HOW</h2>
+                                <p>에코피스아시아는 UNCCD(유엔 사막화 방지 협약)에 공식 CSO (시민사회단체)로 등록한 환경국제협력분야 전문단체로서 지속적으로 우수한 사막화 방지 모범사례를 만들기 위해 13년 째 끊임없이 노력하고 있습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="outline">
+                    <div class="inner">
+                        <div class="outline_title">
+                            <h2>사업개요</h2>
+                        </div>
+                        <ul class="outline_menu">
+                            <li class="active"><a href="javascript:callFunction();" onclick="return false;">2003년 갈림성</a></li>
+                            <li><a href="javascript:callFunction();" onclick="return false;">2006년 만뚜</a></li>
+                            <li><a href="javascript:callFunction();" onclick="return false;">2008년 차간노르</a></li>
+                            <li><a href="javascript:callFunction();" onclick="return false;">2014년 정란치</a></li>
+                        </ul>
+                        <div class="outline_cont">
+                            <ul>
+                                <h2>2003~2007년 <br>길림성 프로젝트</h2>
+                                <li class="outline_list">
+                                    <img src="img/outline_1.png" alt="">
+                                    <h3>사업지역</h3>
+                                    <p>중국 갈림성 서북부</p>
+                                </li>
+                                <li class="outline_list">
+                                    <img src="img/outline_2.png" alt="">
+                                    <h3>사업내용</h3>
+                                    <p>내알카리성 식물인 나문재와
+                                        <br>다년생식물 파종을 통한 초원 조성
+                                    </p>
+                                </li>
+                                <li class="outline_list">
+                                    <img src="img/outline_3.png" alt="">
+                                    <h3>사업성과</h3>
+                                    <p>총 300만평 초지 조성 생태복원
+                                    </p>
+                                </li>
+                                <li class="outline_list">
+                                    <img src="img/outline_4.png" alt="">
+                                    <h3>주요활동</h3>
+                                    <p>나문재파종</p>
+                                    <p>사장작업</p>
+                                    <p>나문재 수확</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+        <footer id="footer">
+            <div class="inner">
+                <div class="f_logo">
+                    <img src="img/footer_logo.png" alt="푸터로고">
+                </div>
+                <div class="copyright">
+                    <ul>
+                        <li>서울시 마포구 성미산로 11길 5 숲센터 4층</li>
+                        <li>대표번호 02-722-7890</li>
+                        <li>이메일 yes@ecopeaceasia.org</li>
+                    </ul>
+                    <p>Copyrigt© EcopeaceAsia All rights reserved.</p>
+                </div>
+                <ul class="sns">
+                    <li><a href="https://happylog.naver.com/hlog/ecopeaceasia/home" target="_blank"><img src="img/ico_bean.png" alt="해피빈"></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCxQm5XRJ2FInL74EEQNsIOA" target="_blank"><img src="img/ico_insta.png" alt="인스타"></a></li>
+                    <li><a href="https://www.facebook.com/EcopeaceAsia/" target="_blank"><img src="img/ico_facebook.png" alt="페이스북"></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 250) {
+                $('#topBtn').fadeIn();
+            } else {
+                $('#topBtn').fadeOut();
+            }
+        });
+        $("#topBtn").click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        });
+    });
+
+    $(function() {
+        var tab = $(".outline_menu > li");
+        tab.find("a").click(function() {
+            tab.removeClass("active");
+            $(this).parent().addClass("active");
+        });
+    });
+
+    $(function() {
+        var title_menu = $(".title_menu li");
+        title_menu.find("a").click(function() {
+            title_menu.removeClass("active");
+            $(this).parent().addClass("active");
+        });
+    });
+</script></html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>에코피스아시아</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="shortcut icon" href="img/ico_favicon.ico" type="img/ico_favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script>
+        $(function() {
+            function slideMenu() {
+                var activeState = $("#menu-container .menu-list").hasClass("active");
+                $("#menu-container .menu-list").animate({
+                    left: activeState ? "0%" : "-100%"
+                }, 400);
+            }
+            $("#menu-wrapper").click(function(event) {
+                event.stopPropagation();
+                $("#hamburger-menu").toggleClass("open");
+                $("#menu-container .menu-list").toggleClass("active");
+                slideMenu();
+
+                $("body").toggleClass("overflow-hidden");
+            });
+
+            $(".menu-list").find(".accordion-toggle").click(function() {
+                $(this).next().toggleClass("open").slideToggle("fast");
+                $(this).toggleClass("active-tab").find(".menu-link").toggleClass("active");
+
+                $(".menu-list .accordion-content").not($(this).next()).slideUp("fast").removeClass("open");
+                $(".menu-list .accordion-toggle").not(jQuery(this)).removeClass("active-tab").find(".menu-link").removeClass("active");
+            });
+            
+            var tabBtn = $('.title_menu > div > ul > li');
+            tabBtn.click(function(e) {
+                e.preventDefault();
+            });
+        }); // jQuery load
+
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="inner">
+                <div class="logo">
+                    <a href="index.html"><img src="img/logo_green.png" alt="로고"></a>
+                </div>
+                <div class="nav_hover">
+                    <ul class="nav">
+                        <li><a href="sub1.html">단체소개</a></li>
+                        <li><a href="sub3.html">사업소개</a></li>
+                        <li><a href="sub2.html">참여 & 후원</a></li>
+                        <li><a href="sub1.html">새소식</a></li>
+                        <li><a href="sub3.html">갤러리</a></li>
+                    </ul>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="sub1.html">단체소개</a>
+                                <ul class="list">
+                                    <li><a href="sub1.html">단체정보</a></li>
+                                    <li><a href="sub2.html">재정보고</a></li>
+                                    <li><a href="sub1.html">협력기관</a></li>
+                                    <li><a href="sub2.html">찾아오는 길</a></li>
+                                    <li><a href="sub1.html">1:1 문의</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="sub3.html">사업소개</a>
+                                <ul class="list">
+                                    <li><a href="sub3.html">사막화 방지</a></li>
+                                    <li><a href="sub3.html">맹그로브 생태복원</a></li>
+                                    <li><a href="sub3.html">혼농임업</a></li>
+                                    <li><a href="sub3.html">환경적정기술 보급</a></li>
+                                    <li><a href="sub3.html">해외봉사</a></li>
+                                    <li><a href="sub3.html">국제교류</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="sub1.html">참여 & 후원</a>
+                                <ul class="list">
+                                    <li><a href="sub1.html">인턴쉽</a></li>
+                                    <li><a href="sub1.html">자원봉사</a></li>
+                                    <li><a href="sub1.html">후원기관</a></li>
+                                    <li><a href="sub1.html">개인후원</a></li>
+                                    <li><a href="sub1.html">단체후원</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="sub2.html">새소식</a>
+                                <ul class="list">
+                                    <li><a href="sub2.html">공지</a></li>
+                                    <li><a href="sub2.html">보도자료</a></li>
+                                    <li><a href="sub2.html">언론보도</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="sub3.html">갤러리</a>
+                                <ul class="list">
+                                    <li><a href="sub3.html">사막화 방지</a></li>
+                                    <li><a href="sub3.html">맹그로브 생태복원</a></li>
+                                    <li><a href="sub3.html">혼농임업</a></li>
+                                    <li><a href="sub3.html">환경적정기술 보급</a></li>
+                                    <li><a href="sub3.html">해외봉사</a></li>
+                                    <li><a href="sub3.html">국제교류</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="lang">
+                    <li><a href="#">KR</a></li>
+                    <li><a href="#">EN</a></li>
+                </ul>
+
+                <div id="menu-container">
+                    <div id="menu-wrapper">
+                        <div id="hamburger-menu"><span></span><span></span><span></span></div>
+                        <!-- hamburger-menu -->
+                    </div>
+                    <!-- menu-wrapper -->
+                    <ul class="menu-list accordion">
+                        <li id="nav1" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="#">단체소개</a>
+                        </li>
+                        <ul class="menu-submenu accordion-content">
+                            <li><a class="head" href="sub1.html">단체정보</a></li>
+                            <li><a class="head" href="sub2.html">재정보고</a></li>
+                            <li><a class="head" href="sub1.html">협력기관</a></li>
+                            <li><a class="head" href="sub2.html">찾아오는 길</a></li>
+                            <li><a class="head" href="sub1.html">1:1 문의</a></li>
+                        </ul>
+                        <li id="nav2" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="sub3.html">사업소개</a>
+                        </li>
+                        <ul class="menu-submenu accordion-content">
+                            <li><a class="head" href="sub3.html">사막화방지</a></li>
+                            <li><a class="head" href="sub3.html">맹그로브 생태복원</a></li>
+                            <li><a class="head" href="sub3.html">혼농임업</a></li>
+                            <li><a class="head" href="sub3.html">환경적정기술 보급</a></li>
+                            <li><a class="head" href="sub3.html">해외봉사</a></li>
+                            <li><a class="head" href="sub3.html">국제교류</a></li>
+                        </ul>
+                        <li id="nav3" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="#">참여 & 후원</a>
+                        </li>
+                        <ul class="menu-submenu accordion-content">
+                            <li><a class="head" href="sub2.html">인턴쉽</a></li>
+                            <li><a class="head" href="sub2.html">자원봉사</a></li>
+                            <li><a class="head" href="sub2.html">후원기관</a></li>
+                            <li><a class="head" href="sub2.html">개인후원</a></li>
+                            <li><a class="head" href="sub2.html">단체후원</a></li>
+                        </ul>
+                        <li id="nav4" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="#">새소식</a>
+                        </li>
+                        <ul class="menu-submenu accordion-content">
+                            <li><a class="head" href="sub1.html">공지</a></li>
+                            <li><a class="head" href="sub2.html">보도자료</a></li>
+                            <li><a class="head" href="sub3.html">언론보도</a></li>
+                        </ul>
+                        <li id="nav5" class="toggle accordion-toggle">
+                            <span class="icon-plus"></span>
+                            <a class="menu-link" href="#">갤러리</a>
+                        </li>
+                        <ul class="menu-submenu accordion-content">
+                            <li><a class="head" href="sub3.html">사막화방지</a></li>
+                            <li><a class="head" href="sub3.html">맹그로브 생태복원</a></li>
+                            <li><a class="head" href="sub3.html">혼농임업</a></li>
+                            <li><a class="head" href="sub3.html">환경적정기술 보급</a></li>
+                            <li><a class="head" href="sub3.html">해외봉사</a></li>
+                            <li><a class="head" href="sub3.html">국제교류</a></li>
+                        </ul>
+                    </ul>
+                    <!-- menu-list accordion-->
+                </div>
+            </div>
+            <a id="topBtn"><img src="img/ico_top.png" alt=""></a>
+        </header>
+        <main id="sub2-contents">
+            <section class="titlebodyimg sub1_img">
+                <h1 class="hidden">서브이미지</h1>
+                <div class="titlebody_text">
+                    <h3>단체소개</h3>
+                </div>
+                <ul class="title_menu title_sub1">
+                    <div class="inner">
+                        <ul>
+                            <li class="active"><a class="menu" href="#">단체정보</a></li>
+                            <li><a class="menu" href="#">재정보고</a></li>
+                            <li><a class="menu" href="#">협력기관</a></li>
+                            <li><a class="menu" href="#">찾아오는 길</a></li>
+                            <li><a class="menu" href="#">1:1 문의</a></li>
+                        </ul>
+                    </div>
+                </ul>
+            </section>
+            <section class="sub2-cons">
+                <h1 class="hidden">콘텐츠</h1>
+                <ul class="top_menu menu_sub2">
+                    <li><a href="sub1.html">설립목적</a></li>
+                    <li><a href="sub2.html">연혁 & 수상</a></li>
+                    <li><a href="#">조직도</a></li>
+                </ul>
+                <div class="history">
+                    <div class="inner">
+                        <div class="his_text">
+                            <h5>History</h5>
+                            <p>에코피스아시아가 걸어온 길을 소개합니다</p>
+                        </div>
+                        <div class="his_cont">
+                            <!--before로 라인-->
+                            <div class="year_title">2015 ~ 2020</div>
+                            <div class="his_box">
+                                <ul class="his_list">
+                                    <li class="his_list_in his_right">
+                                        <h4 class="year"><span class="circle"></span>2020</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">04</div>
+                                                <div class="text">서울특별시 비영리민간단체 등록</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">03</div>
+                                                <div class="text">건강한 도시숲 만들기 2차 사업(여의도)</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="his_list_in his_left">
+                                        <h4 class="year"><span class="circle"></span>2019</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">12</div>
+                                                <div class="text">따소미 에코스쿨 시범 사업</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">10</div>
+                                                <div class="text">건강한 도시숲 만들기 1차 사업(여의도)</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">07</div>
+                                                <div class="text">내몽고 사막화방지 체험단 파송(중국)</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">06</div>
+                                                <div class="text">사회환경교육지원사업 ‘지구를 구하는 플레이어들’ 프로그램 진행</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">04</div>
+                                                <div class="text">중국 내몽고 정란치 사막화방지 2기 사업('19~'20)
+                                                    <br>
+                                                    중국 숲유치원 한국 방문
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">01</div>
+                                                <div class="text">글로벌 에코리더 해외연수단 파송(대만)</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="his_list_in his_right">
+                                        <h4 class="year"><span class="circle"></span>2018</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">11</div>
+                                                <div class="text">한국환경교육네트워크 해외교육단체 연수 (‘17~'19)</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">09</div>
+                                                <div class="text">대학생 해외봉사단 환경봉사 파견(필리핀)</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">01</div>
+                                                <div class="text">글로벌 에코리더 해외연수(중국 심천 및 홍콩)
+                                                    <br>
+                                                    대학교 사회공헌단 환경봉사 파견(필리핀)
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="his_list_in his_left">
+                                        <h4 class="year"><span class="circle"></span>2017</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">08</div>
+                                                <div class="text">대학생 해외봉사단 환경봉사 파견 (인도네시아)
+                                                    <br>
+                                                    중국 내몽고 사막화방지 시민환경자원봉사단 파견
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">01</div>
+                                                <div class="text">글로벌 에코리더 해외 환경연수 (‘17~'19)</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+
+                                    <li class="his_list_in his_right">
+                                        <h4 class="year"><span class="circle"></span>2016</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">11</div>
+                                                <div class="text">제 9회 SBS 물환경대상 시민사회부문 '가시연꽃상' 수상</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">08</div>
+                                                <div class="text">필리핀 빗물이용 음용수공급 시범보급사업 사후관리 사업 수행
+                                                    <br>
+                                                    필리핀 혼농임업 정보센터 준공식
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">07</div>
+                                                <div class="text">중국 내몽고 사막화방지 한국환경단체 체험단 (‘16~'19)
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">05</div>
+                                                <div class="text">중국 내몽고 정란치 초본류 및 관목류 생산시설양묘장 준공
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="his_list_in his_left">
+                                        <h4 class="year"><span class="circle"></span>2015</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">12</div>
+                                                <div class="text">필리핀 혼농임업 사업 회원농장 컨테스트
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">08</div>
+                                                <div class="text">필리핀 혼농임업 사업 양묘장 준공식</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">04</div>
+                                                <div class="text">한·중 생태교육 교류사업</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">01</div>
+                                                <div class="text">내몽고 정란치 마른호수 복원 및 복구 연구사업 수행</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="year_title">2010 ~ 2014</div>
+                            <div class="his_box">
+                                <ul class="his_list">
+                                    <li class="his_list_in his_right">
+                                        <h4 class="year"><span class="circle"></span>2014</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">05</div>
+                                                <div class="text">필리핀 재난대응형 적정기술 시범사업(‘14~'17)</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">04</div>
+                                                <div class="text">중국 내몽고 정란치 사막화방지 사업 (‘14~'18)
+                                                    <br>
+                                                    한·중 생태교육 배움한마당 (‘14~'18)
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">01</div>
+                                                <div class="text">필리핀 혼농임업 사업 (‘14~’17)</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="his_list_in his_left">
+                                        <h4 class="year"><span class="circle"></span>2013</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">10</div>
+                                                <div class="text">에코피스아시아 필리핀 지부 설립 (로스바뇨스)</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">08</div>
+                                                <div class="text">2013 중국 북경 지역 대학생 환경봉사단 파견</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">07</div>
+                                                <div class="text">중국 복건성 맹그로브숲 생태복원 사업 (‘13~'14)
+                                                    <br>
+                                                    한국대학생 차간노르 해외환경봉사단 11기 파견
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">06</div>
+                                                <div class="text">중국 환경 분야에서 권위 있는 ‘제5회 SEE·TNC 생태상’ 시상식에서 ‘그린리더 상’ 수상</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">01</div>
+                                                <div class="text">차칸노르 사막화방지 2기 사업 추진(2013~2017)
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="his_list_in his_right">
+                                        <h4 class="year"><span class="circle"></span>2012</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">12</div>
+                                                <div class="text">차칸노르 사막화방지 1기 사업 종료(감봉초지 3,000ha 조성)</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="his_list_in his_left">
+                                        <h4 class="year"><span class="circle"></span>2011</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">10</div>
+                                                <div class="text">사막화방지협약 (UNCCD) 공식 승인 CSO로 등록
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">05</div>
+                                                <div class="text">UNCCD COP10, 사막화방지 CSO네트워크 공동대표 단체
+                                            </li>
+                                        </ul>
+                                    </li>
+
+
+                                    <li class="his_list_in his_right">
+                                        <h4 class="year"><span class="circle"></span>2010</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">10</div>
+                                                <div class="text">KCOC(국제개발협력민간협의회) 정회원 가입</div>
+                                            </li>
+                                            <li>
+                                                <div class="day">09</div>
+                                                <div class="text">몽골공화국 다신칠링솜 지속가능발전 계획개발 기초조사 (‘10~’11)
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">08</div>
+                                                <div class="text">중국 북경대학생 환경봉사단 파견 사업 (‘10~'18)
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">01</div>
+                                                <div class="text">중국 샤먼시 맹그로브 생태복원 사업 (‘10~'12)
+                                                    <br>
+                                                    여수엑스포 그린존 조성 국제협력사업
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="year_title">2003 ~ 2009</div>
+                            <div class="his_box">
+                                <ul class="his_list">
+                                    <li class="his_list_in his_left">
+                                        <h4 class="year"><span class="circle"></span>2009</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">05</div>
+                                                <div class="text">에코피스아시아 중국 사무소 설립 (베이징)
+                                                    <br>
+                                                    외교통상부 사단법인 인가 (2009.05.10)
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">03</div>
+                                                <div class="text">사단법인 에코피스아시아 설립 (2009.03.12)</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="his_list_in his_right">
+                                        <h4 class="year"><span class="circle"></span>2008</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">07</div>
+                                                <div class="text">한국대학생 환경봉사단 사업 (‘08-’15)
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">01</div>
+                                                <div class="text">중국 내몽고 차간노르 사막화방지 사업 (‘08~'13)</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="his_list_in his_left">
+                                        <h4 class="year"><span class="circle"></span>2006</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">01</div>
+                                                <div class="text">중국 내몽고자치구 동우치 사막화 방지사업 (‘06~'07)</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="his_list_in his_right">
+                                        <h4 class="year"><span class="circle"></span>2003</h4>
+                                        <ul class="his">
+                                            <li>
+                                                <div class="day">03</div>
+                                                <div class="text">중국 길림성 서북부 사막화 방지사업 (‘03~'07)(‘08-’15)
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="day">02</div>
+                                                <div class="text">사막화방지센터라는 명의의 임시 단체로 활동 시작</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer id="footer">
+            <div class="inner">
+                <div class="f_logo">
+                    <img src="img/footer_logo.png" alt="푸터로고">
+                </div>
+                <div class="copyright">
+                    <ul>
+                        <li>서울시 마포구 성미산로 11길 5 숲센터 4층</li>
+                        <li>대표번호 02-722-7890</li>
+                        <li>이메일 yes@ecopeaceasia.org</li>
+                    </ul>
+                    <p>Copyrigt© EcopeaceAsia All rights reserved.</p>
+                </div>
+                <ul class="sns">
+                    <li><a href="https://happylog.naver.com/hlog/ecopeaceasia/home" target="_blank"><img src="img/ico_bean.png" alt="해피빈"></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCxQm5XRJ2FInL74EEQNsIOA" target="_blank"><img src="img/ico_insta.png" alt="인스타"></a></li>
+                    <li><a href="https://www.facebook.com/EcopeaceAsia/" target="_blank"><img src="img/ico_facebook.png" alt="페이스북"></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+
+<script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 250) {
+                $('#topBtn').fadeIn();
+            } else {
+                $('#topBtn').fadeOut();
+            }
+        });
+        $("#topBtn").click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        });
+    });
+
+    $(function() {
+        var title_menu = $(".title_menu li");
+        title_menu.find("a").click(function() {
+            title_menu.removeClass("active");
+            $(this).parent().addClass("active");
+        });
+    });
+
+</script>
+
+</html>

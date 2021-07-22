@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>롯데칠성</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            mobile_menu();
+        });
+
+        function mobile_menu() {
+            /* 변수 선언 */
+            var $menu = null;
+            var $left_gnb = null; // 영역 전체
+            var $depth1_wrap = null;
+            var $depth1 = null;
+            var $depth1_btn = null;
+
+            /* 시작 함수 */
+            function start() {
+                init();
+                init_event();
+            }
+            /* 변수 초기화 함수 */
+            function init() {
+                $menu = $('.m_menu');
+                $left_gnb = $('.left_gnbWrap'); // 영역 전체
+                $depth1_wrap = $('.left_gnb>li');
+                $depth1 = $depth1_wrap.children('ul');
+                $depth1_btn = $depth1_wrap.children('a');
+            }
+            /* 이벤트 함수 */
+            function init_event() {
+
+                /* 모바일 메뉴 버튼 클릭했을때 모바일 메뉴영역 나오게 하기 */
+                $menu.click(function(event) {
+                    event.preventDefault();
+                    $left_gnb.addClass('on');
+                });
+
+                /* x버튼 눌렀을때 모바일 메뉴 닫기 */
+                $('.close').click(function(event) {
+                    event.preventDefault();
+
+                    $left_gnb.removeClass('on');
+
+                    // x버튼 누르면 시간차 약간두고 소메뉴 닫히게 하기
+                    setTimeout(function() {
+                        $depth1_btn.removeClass('on');
+                        $depth1.slideUp();
+                    }, 300)
+                });
+
+                /* depth1의 각메뉴 클릭시 depth2 나오게 하기 */
+                $depth1_btn.click(function(event) {
+                    event.preventDefault();
+                    var $this = $(this);
+                    var $this_ul = $this.siblings('ul');
+
+                    var check = $this.hasClass('on');
+                    if (check) {
+                        $this.removeClass('on');
+                        $this_ul.stop(true, true).slideUp();
+                    } else {
+                        $depth1_btn.removeClass('on');
+                        $depth1.stop().slideUp();
+                        $this.addClass('on');
+                        $this_ul.stop(true, true).slideDown();
+                    }
+                });
+
+                /* 디바이스 크기 변경시 모바일 메뉴영역 숨기기 */
+                $(window).resize(function() {
+                    $left_gnb.removeClass('on');
+                });
+            }
+
+            start(); // 시작 호출
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <!-- 위쪽상단 -->
+            <div class="top_header">
+                <div class="inner">
+                    <ul class="util">
+                        <li>롯데그룹</li>
+                        <li>L.POINT</li>
+                        <li>ENGLISH</li>
+                        <!-- :after으로 clear:both -->
+                    </ul>
+                    <!-- :after으로 clear:both -->
+                </div>
+            </div>
+            <!-- 아랫쪽상단 -->
+            <div class="bottom_header">
+                <div class="inner">
+                    <ul class="menu">
+                        <li><a href="sub2.html">기업소개</a>
+                            <ul class="submenu">
+                                <li><a href="sub2.html">비전</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="sub2.html">제품소개</a>
+                        </li>
+                        <li><a href="sub1.html">인재채용</a>
+                            <ul class="submenu">
+                                <li><a href="sub1.html">복리후생</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="sub1.html">고객지원</a>
+                        </li>
+                        <!-- :after으로 clear:both -->
+                    </ul>
+                    <div class="logo"><a href="index.html"><img src="img/logo.png" alt="로고"></a></div>
+                    <div class="sub_menu">
+                        <ul class="side">
+                            <li><i><img src="img/ico_open.png" alt="오픈이노베이션"></i>오픈이노베이션</li>
+                            <li><i><img src="img/ico_news.png" alt="뉴스피드"></i>뉴스피드</li>
+                            <!-- :after으로 clear:both -->
+                        </ul>
+                        <div class="search">
+                            <img src="img/ico_search.png" alt="검색">
+                        </div>
+                        <div class="m_menu">
+                            <a href="#"><img src="img/ico_menu.png" alt="메뉴버튼"></a>
+                        </div>
+                        <!--모바일 메뉴 버튼-->
+                        <nav class="left_gnbWrap">
+                            <a href="#" class="close">close</a>
+                            <ul class="left_gnb">
+                                <li>
+                                    <a href="sub2.html">기업소개</a>
+                                    <ul>
+                                        <li><a href="sub2.html">비전</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="sub2.html">제품소개</a>
+                                </li>
+                                <li>
+                                    <a href="sub1.html">인재채용</a>
+                                    <ul>
+                                        <li><a href="sub1.html">복리후생</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="sub1.html">고객지원</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="eng">
+                            <img src="img/ico_eng.png" alt="eng">
+                            <p>ENG</p>
+                        </div>
+                    </div>
+                    <!-- :after으로 clear:both -->
+                </div>
+            </div>
+        </header>
+        <main id="sub2-contents">
+            <section class="location">
+                <div class="inner">
+                    <ul>
+                        <li><img src="img/logo_mini.png" alt="홈"></li>
+                        <li>
+                            <select onchange="if(this.value) location.href=(this.value);">
+                                <option value="sub2.html">&nbsp;&nbsp;기업소개</option>
+                                <option>&nbsp;&nbsp;제품소개</option>
+                                <option value="sub1.html">&nbsp;&nbsp;인재채용</option>
+                                <option>&nbsp;&nbsp;고객지원</option>
+                            </select>
+                        </li>
+                        <li>
+                            <select onchange="if(this.value) location.href=(this.value);">
+                                <option value="sub2.html">&nbsp;&nbsp;비전</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="sub2_title">
+                <h1 class="hidden">서브타이틀</h1>
+                <div>
+                    <p>비전</p>
+                    <p>건강하고 행복한 삶에 기여합니다.</p>
+                </div>
+            </section>
+            <section class="sub2_cons">
+                <h1 class="hidden">콘텐츠</h1>
+                <div class="inner">
+                    <h2>롯데칠성 비전</h2>
+                    <div class="vision">
+                        <div class="vision_list">
+                            <div class="vision_l">
+                                <img src="img/sub2_img1.jpg" alt="브랜드">
+                            </div>
+                            <div class="vision_r">
+                                <h5>브랜드</h5>
+                                <h3>브랜드 가치 제고를 통한 <br><span>미래 성장 동력 확보</span></h3>
+                                <p>소비자의 전 생애주기에 걸친 음료 포트폴리오 구축과 <br>해외, 온라인 등 미래 신사업 발굴</p>
+                            </div>
+                        </div>
+                        <div class="vision_list">
+                            <div class="vision_l">
+                                <img src="img/sub2_img2.jpg" alt="사람">
+                            </div>
+                            <div class="vision_r">
+                                <h5>사람</h5>
+                                <h3>인재 육성을 위한 지속적인<br> <span>기업문화 개선 활동</span></h3>
+                                <p>행복한 일터를 만들기 위한 조직
+                                    문화 개선과 <br>사회, 환경에 기여하는 ESG (Environment,<br> Social, Governance) 역량 강화</p>
+                            </div>
+                        </div>
+                        <div class="vision_list">
+                            <div class="vision_l">
+                                <img src="img/sub2_img3.jpg" alt="시스템">
+                            </div>
+                            <div class="vision_r">
+                                <h5>시스템</h5>
+                                <h3>질적성장을 위한 <br><span>시스템 구조 고도화</span></h3>
+                                <p>수익성 개선을 위한 제로베이스예산제(ZBB; zero-based <br>
+                                    budgeting) 내재화 및 4차산업혁명 시대의 제조혁신<br>
+                                    변화에 따른 스마트팩토리 인프라 조성</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer">
+                <div class="m_familysite">
+                    <select>
+                        <option>FAMILY SITE</option>
+                    </select>
+                </div>
+                <div class="top_footer">
+                    <div class="inner">
+                        <ul>
+                            <li>이용약관</li>
+                            <li>개인정보처리방침</li>
+                            <li>영상정보처리기기 운영ㆍ방침</li>
+                            <li>롯데칠성몰</li>
+                            <li>신문고</li>
+                            <li>공장견학</li>
+                            <li>사이트맵</li>
+                            <!-- :after으로 clear:both -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="bottom_footer">
+                    <div class="inner">
+                        <div class="familysite">
+                            <select>
+                                <option>FAMILY SITE</option>
+                            </select>
+                            <!-- :after으로 clear:both -->
+                        </div>
+                        <div class="f_logo">
+                            <img src="img/f_logo.png" alt="하단로고">
+                        </div>
+                        <div class="copyright">
+                            <ul>
+                                <li><span>주소</span>서울시 송파구 올림픽로 269 롯데캐슬골드 3,4,5,9층</li>
+                                <li><span>TEL</span>02-3479-7114</li>
+                                <li><span>FAX</span>02-536-9767</li>
+                                <li><span>대표이사</span>이영구</li>
+                            </ul>
+                            <p>Copyright © 2018 LOTTE CHILSUNG BEVERAGE CO.LTD. ALL RIGHTS RESERVED</p>
+                        </div>
+                        <!-- :after으로 clear:both -->
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>
